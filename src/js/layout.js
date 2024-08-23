@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { Detalles } from "./views/detalles";
+import { Descripciones } from "./views/descripciones";
 import { Favoritos } from "./views/favoritos";
 import { PaginaNoEncontrada } from "./views/paginaNoEncontrada";
 import injectContext from "./store/appContext";
@@ -24,7 +24,7 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/detalles" element={<Detalles />} />
+                        <Route path="/descripciones/:type/:id" element={<Descripciones />} />
                         <Route path="/favoritos" element={<Favoritos />} />
                         {/* No importa qué ruta inexistente se intente acceder, siempre mostrará la vista de "Página No Encontrada". */}
                         <Route path="*" element={<PaginaNoEncontrada />} />
