@@ -1,20 +1,20 @@
-const getState = ({ getStore, setStore, getActions }) => {
+const getState = ({ getStore, setStore }) => {
     return {
         store: {
-            characters: [],
+            people: [], // Cambiado de 'characters' a 'people'
             vehicles: [],
             planets: [],
             favorites: [],
-            selectedItem: null // Añadimos un estado para almacenar el item seleccionado
+            selectedItem: null
         },
         actions: {
             loadCharacters: async () => {
                 try {
                     const response = await fetch('https://www.swapi.tech/api/people');
                     const data = await response.json();
-                    setStore({ characters: data.results });
+                    setStore({ people: data.results });
                 } catch (error) {
-                    console.error('Error loading characters:', error);
+                    console.error('Error loading people:', error);
                 }
             },
 
@@ -40,9 +40,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 
             loadDetails: async (type, id) => {
                 try {
-                    // Usa el 'type' tal cual, asumiendo que ya está en plural en todos los casos
                     const url = `https://www.swapi.tech/api/${type}/${id}`;
-                    console.log('Fetching details from URL:', url); // Verifica que la URL sea correcta
+                    console.log('Fetching details from URL:', url); 
                     const response = await fetch(url);
             
                     if (!response.ok) {

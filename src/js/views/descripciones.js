@@ -5,28 +5,26 @@ import { CharacterDetails } from './characterDetails';
 import { VehicleDetails } from './vehicleDetails';
 import { PlanetDetails } from './planetDetails';
 
-
-
 export const Descripciones = () => {
-    const { id, type } = useParams(); // Obtén el ID y el tipo del elemento desde la URL
-    const { store, actions } = useContext(Context); // Accede al store y las acciones desde el Context
+    const { id, type } = useParams();
+    const { actions } = useContext(Context);
     const [itemDetails, setItemDetails] = useState(null);
 
     useEffect(() => {
         actions.loadDetails(type, id).then(details => {
             setItemDetails(details);
         });
-    }, []);
+    }, [id, type, actions]);
 
     const renderDetails = () => {
-        console.log("Item Details:", itemDetails); // Verifica los detalles aquí
+        console.log("Item Details:", itemDetails);
         
         switch (type) {
-            case 'character':
+            case 'people': // Usar 'people' en lugar de 'character'
                 return <CharacterDetails details={itemDetails} />;
-            case 'vehicle':
+            case 'vehicles':
                 return <VehicleDetails details={itemDetails} />;
-            case 'planet':
+            case 'planets':
                 return <PlanetDetails details={itemDetails} />;
             default:
                 return <p>No hay detalles disponibles.</p>;

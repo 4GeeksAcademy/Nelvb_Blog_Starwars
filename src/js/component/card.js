@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export const Card = ({ title, imageUrl, description, linkUrl, onAddToFavorites }) => {
+export const Card = ({ title, imageUrl, description, linkUrl, onAddToFavorites, isFAvorite }) => {
     return (
         <div className='card' style={{ width: '18rem' }}>
             <img src={imageUrl} className='card-img-top' alt={title} />
@@ -16,7 +16,8 @@ export const Card = ({ title, imageUrl, description, linkUrl, onAddToFavorites }
                         onClick={onAddToFavorites}
                         className='btn btn-warning'
                     >
-                        Añadir a favoritos
+                       { isFAvorite ? <i class="fas fa-heart"></i> : 
+                        <i class="far fa-heart"></i>}
                     </button>
                 </div>
             </div>
