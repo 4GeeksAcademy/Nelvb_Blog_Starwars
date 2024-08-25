@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export const Card = ({ title, imageUrl, description, linkUrl, onAddToFavorites, isFAvorite }) => {
+export const Card = ({ title, imageUrl, description, linkUrl, onAddToFavorites, isFavorite }) => { // Asegúrate de que 'isFavorite' esté correctamente escrito aquí
     return (
         <div className='card' style={{ width: '18rem' }}>
             <img src={imageUrl} className='card-img-top' alt={title} />
-            {/* alt es un atributo que proporciona un texto alternativo para la imagen. */}
             <div className='card-body'>
                 <h5 className='card-title'>{title}</h5>
                 <p className='card-text'>{description}</p>
@@ -16,8 +15,7 @@ export const Card = ({ title, imageUrl, description, linkUrl, onAddToFavorites, 
                         onClick={onAddToFavorites}
                         className='btn btn-warning'
                     >
-                       { isFAvorite ? <i class="fas fa-heart"></i> : 
-                        <i class="far fa-heart"></i>}
+                        { isFavorite ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}
                     </button>
                 </div>
             </div>
@@ -26,9 +24,10 @@ export const Card = ({ title, imageUrl, description, linkUrl, onAddToFavorites, 
 };
 
 Card.propTypes = {
-    title: PropTypes.string,
-    imageUrl: PropTypes.string,
-    description: PropTypes.string,
-    linkUrl: PropTypes.string,
-    onAddToFavorites: PropTypes.func,
+    title: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    linkUrl: PropTypes.string.isRequired,
+    onAddToFavorites: PropTypes.func.isRequired,
+    isFavorite: PropTypes.bool.isRequired, // Asegúrate de que 'isFavorite' sea obligatorio y esté bien manejado
 };

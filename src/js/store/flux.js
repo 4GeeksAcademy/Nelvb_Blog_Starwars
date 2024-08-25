@@ -1,7 +1,7 @@
 const getState = ({ getStore, setStore }) => {
     return {
         store: {
-            people: [], // Cambiado de 'characters' a 'people'
+            people: [],
             vehicles: [],
             planets: [],
             favorites: [],
@@ -63,7 +63,16 @@ const getState = ({ getStore, setStore }) => {
 
             addToFavorites: (item) => {
                 const store = getStore();
-                setStore({ favorites: [...store.favorites, item] });
+                const isFavorite = store.favorites.some(favorite => favorite.uid === item.uid && favorite.type === item.type);
+
+                if (isFavorite) {
+                    // Elimina el favorito
+                    const newFavorites = store.favorites.filter(favorite => favorite.uid !== item.uid || favorite.type !== item.type);
+                    setStore({ favorites: newFavorites });
+                } else {
+                    // Agrega el favorito
+                    setStore({ favorites: [...store.favorites, item] });
+                }
             },
 
             removeFromFavorites: (index) => {
