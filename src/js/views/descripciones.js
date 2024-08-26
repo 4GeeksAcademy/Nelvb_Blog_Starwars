@@ -20,7 +20,7 @@ export const Descripciones = () => {
         console.log("Item Details:", itemDetails);
         
         switch (type) {
-            case 'people': // Usar 'people' en lugar de 'character'
+            case 'people': 
                 return <CharacterDetails details={itemDetails} />;
             case 'vehicles':
                 return <VehicleDetails details={itemDetails} />;

@@ -29,14 +29,15 @@ export const Home = () => {
                 <div className="card-row card-row-people">
                     {store.people.map((person) => (
                         <Card
-                            key={`${person.uid}-people`}
-                            title={person.name}
-                            imageUrl={`https://starwars-visualguide.com/assets/img/characters/${person.uid}.jpg`}
-                            description={`Ver más sobre ${person.name}`}
-                            linkUrl={`/descripciones/people/${person.uid}`}
-                            onAddToFavorites={() => addToFavorites(person, 'people')}
-                            isFavorite={isFavorite(person, 'people')}
-                        />
+                        key={`${person.uid}-people`}
+                        title={person.name}
+                        imageUrl={`https://starwars-visualguide.com/assets/img/characters/${person.uid}.jpg`}
+                        description={`Ver más sobre ${person.name}`}
+                        linkUrl={`/descripciones/people/${person.uid}`}
+                        onAddToFavorites={() => addToFavorites(person, 'people')}
+                        isFavorite={isFavorite(person, 'people')}
+                        type="people"  // Añade este prop para identificar que es un personaje
+                    />
                     ))}
                 </div>
                 <button className="arrow-right" onClick={() => scrollRight('card-row-people')}>{'>'}</button>

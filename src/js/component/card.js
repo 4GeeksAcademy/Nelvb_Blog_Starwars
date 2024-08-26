@@ -2,10 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export const Card = ({ title, imageUrl, description, linkUrl, onAddToFavorites, isFavorite }) => { // Asegúrate de que 'isFavorite' esté correctamente escrito aquí
+export const Card = ({ title, imageUrl, description, linkUrl, onAddToFavorites, isFavorite, type }) => {
+    // Determina si es un personaje para aplicar la clase adicional
+    const imageClass = type === 'people' ? 'card-img-top characters' : 'card-img-top';
+
     return (
         <div className='card' style={{ width: '18rem' }}>
-            <img src={imageUrl} className='card-img-top' alt={title} />
+            <img src={imageUrl} className={imageClass} alt={title} />
             <div className='card-body'>
                 <h5 className='card-title'>{title}</h5>
                 <p className='card-text'>{description}</p>
@@ -15,7 +18,7 @@ export const Card = ({ title, imageUrl, description, linkUrl, onAddToFavorites, 
                         onClick={onAddToFavorites}
                         className='btn btn-warning'
                     >
-                        { isFavorite ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}
+                        {isFavorite ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}
                     </button>
                 </div>
             </div>
@@ -29,5 +32,6 @@ Card.propTypes = {
     description: PropTypes.string.isRequired,
     linkUrl: PropTypes.string.isRequired,
     onAddToFavorites: PropTypes.func.isRequired,
-    isFavorite: PropTypes.bool.isRequired, // Asegúrate de que 'isFavorite' sea obligatorio y esté bien manejado
+    isFavorite: PropTypes.bool.isRequired,
+    type: PropTypes.string.isRequired, // Añadimos 'type' para distinguir entre personajes, vehículos y planetas
 };
