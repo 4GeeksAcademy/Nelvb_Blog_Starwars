@@ -7,7 +7,7 @@ export const Card = ({ title, imageUrl, description, linkUrl, onAddToFavorites, 
     const imageClass = type === 'people' ? 'card-img-top characters' : 'card-img-top';
 
     return (
-        <div className='card' style={{ width: '18rem' }}>
+        <div className='card'>
             <img src={imageUrl} className={imageClass} alt={title} />
             <div className='card-body'>
                 <h5 className='card-title'>{title}</h5>

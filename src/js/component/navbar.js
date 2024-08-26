@@ -18,8 +18,10 @@ const { store }= useContext(Context);
 
 
 				<p className='navbar-text text-center mx-auto star-wars-text'>
-					Hace mucho tiempo, en una galaxia lejana, muy lejana....
+					Hace mucho tiempo, en una <br />galaxia lejana, muy lejana....
+
 				</p>
+
 				<Link to="/favoritos">
 					<button className="btn btn-primary">
 						Favoritos: {store.favorites ? store.favorites.length : 0}</button>

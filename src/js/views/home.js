@@ -23,7 +23,7 @@ export const Home = () => {
 
     return (
         <div className="home-container">
-            <h2>Personajes</h2>
+            <h2>characters</h2>
             <div className="card-row-wrapper">
                 <button className="arrow-left" onClick={() => scrollLeft('card-row-people')}>{'<'}</button>
                 <div className="card-row card-row-people">
@@ -43,7 +43,7 @@ export const Home = () => {
                 <button className="arrow-right" onClick={() => scrollRight('card-row-people')}>{'>'}</button>
             </div>
 
-            <h2>Vehículos</h2>
+            <h2>vehicles</h2>
             <div className="card-row-wrapper">
                 <button className="arrow-left" onClick={() => scrollLeft('card-row-vehicles')}>{'<'}</button>
                 <div className="card-row card-row-vehicles">
@@ -62,7 +62,7 @@ export const Home = () => {
                 <button className="arrow-right" onClick={() => scrollRight('card-row-vehicles')}>{'>'}</button>
             </div>
 
-            <h2>Planetas</h2>
+            <h2>Planets</h2>
             <div className="card-row-wrapper">
                 <button className="arrow-left" onClick={() => scrollLeft('card-row-planets')}>{'<'}</button>
                 <div className="card-row card-row-planets">

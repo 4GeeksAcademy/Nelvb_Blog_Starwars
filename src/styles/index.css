@@ -1,210 +1,261 @@
-/* Estilo para la navbar */
-.navbar {
-    background-color: #000; /* Fondo negro */
-}
-
-.navbar .navbar-brand,
-.navbar .navbar-text,
-.navbar .btn {
-    color: #fff; /* Color blanco para las letras de la navbar */
-}
-
-.navbar .navbar-brand:hover,
-.navbar .navbar-text:hover,
-.navbar .btn:hover {
-    color: #ccc; /* Color gris claro al pasar el ratón */
-}
-
-.navbar-logo {
-    height: 70px; /* Ajusta la altura del logo */
-    object-fit: contain; /* Mantener la relación de aspecto */
-}
-
-/* Estilo específico para el texto de Star Wars */
-.star-wars-text {
-    color: #1E90FF !important; /* Color azul */
-    font-family: 'Star Jedi', sans-serif; /* Puedes usar una fuente de Star Wars si tienes una, o cualquier fuente que prefieras */
-    font-size: 30px;
-}
-
-/* Fondo y configuración general */
-body, html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    background-color: #000; /* Color de fondo para áreas fuera de la imagen */
-}
-
-.home-container {
-    background-image: url('https://img.freepik.com/vector-gratis/trae-papel-tapiz-espacio-nocturno-campo-estelar-brillante_1017-53512.jpg?size=626&ext=jpg&ga=GA1.1.1988309428.1722936788&semt=ais_hybrid');
-    background-repeat: repeat; /* Repetir la imagen de fondo */
-    background-size: cover; /* Cubrir todo el fondo */
-    background-position: center;
-    min-height: 100vh;
-    padding: 20px;
-    transition: background-color 0.5s ease; /* Suavizar las transiciones */
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h2 {
-    color: #fff;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Estilo de las filas de tarjetas */
-.card-row-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.card-row {
-    display: flex;
-    overflow-x: hidden; /* Ocultar la barra de desplazamiento */
-    scroll-behavior: smooth;
-    padding: 10px 0;
-    flex-wrap: nowrap;
-    transition: transform 0.3s ease; /* Suavizar la transición del scroll */
-}
-
-.card {
-    flex-shrink: 0; /* Evitar que las tarjetas se reduzcan */
-    width: 18rem;
-    height: 420px; /* Forzar un tamaño fijo en la altura de la tarjeta */
-    margin: 0 10px;
-    overflow: hidden;
-    background-color: #1c1c1c;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease; /* Suavizar la transición en hover */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card-img-top.characters {
-    object-fit: contain; /* Asegura que la imagen completa se ajuste dentro del contenedor */
-}
+ /* Estilo para la navbar */
+ .navbar {
+     background-color: black;
+     /* Fondo negro */
+     padding-top: 0px;
+     padding-bottom: 0px;
+     box-shadow: 0px 3px 10px #FFC500;
+     /* Sombra amarilla dorada difuminada */
+ }
 
 
-.card:hover {
-    transform: translateY(-5px); /* Efecto de levantar al hacer hover */
-}
+ .navbar .navbar-brand,
+ .navbar .navbar-text,
+ .navbar .btn {
+     color: white;
+     /* Color blanco para las letras de la navbar */
+ }
 
-.card-img-top {
-    width: 100%;
-    height: 250px; /* Ajuste uniforme de la altura de las imágenes */
-    object-fit: cover; /* Ajustar la imagen dentro del contenedor para cubrirlo sin distorsión */
-    object-position: center; /* Centrar la imagen */
-    background-color: #000; /* Fondo negro para espacios vacíos */
-}
+ .navbar .navbar-brand:hover,
+ .navbar .navbar-text:hover,
+ .navbar .btn:hover {
+     color: lightgrey;
+     /* Color gris claro al pasar el ratón */
+ }
 
-.card-body {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 150px; /* Altura fija para el cuerpo de la tarjeta */
-}
+ .navbar-logo {
+     height: 90px;
+     /* Ajusta la altura del logo */
+     object-fit: contain;
+     /* Mantener la relación de aspecto */
+ }
 
-.card-title, .card-text {
-    color: #fff;
-}
+ /* Estilo específico para el texto de Star Wars */
+ .star-wars-text {
+     color: #1E90FF !important;
+     font-family: Arial, sans-serif;
+     font-size: 30px;
+     text-shadow:
+         0px 0px 1px #1E90FF,
+         0px 0px 3px #1E90FF;
+ }
 
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    transition: background-color 0.3s ease;
-}
+ @font-face {
+     font-family: 'Star Jedi';
+     src: url('/src/fons/Starjedi.ttf') format('truetype');
+ }
 
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004085;
-}
+ /* Aplica la fuente Star Jedi solo a los h2 */
+ .home-container h2 {
+     font-family: 'Star Jedi', sans-serif;
+     font-size: 45px;
+     letter-spacing: 1px;
+     color: #FFC500;
+     /* Amarillo dorado */
+     text-shadow:
+         0px 0px 1px #FFC500,
+         /* Sombra amarilla, aún más difusa */
+         0px 0px 3px #FFC500;
+     /* Sombra amarilla, la más difusa */
+     text-align: center;
+     padding-top: 20px;
+ }
 
-.btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
-    color: #000;
-    transition: background-color 0.3s ease;
-}
 
-.btn-warning:hover {
-    background-color: #e0a800;
-    border-color: #d39e00;
-}
+ /* Fondo y configuración general */
+ body,
+ html {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: Arial, sans-serif;
+     background-color: #000;
+     /* Color de fondo para áreas fuera de la imagen */
+ }
 
-/* Estilo de las flechas de navegación */
-.arrow-left, .arrow-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 1;
-    padding: 10px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease;
-}
 
-.arrow-left:hover, .arrow-right:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
+ .home-container {
+     background-image: url('https://img.freepik.com/vector-gratis/trae-papel-tapiz-espacio-nocturno-campo-estelar-brillante_1017-53512.jpg?size=626&ext=jpg&ga=GA1.1.1988309428.1722936788&semt=ais_hybrid');
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     min-height: 100vh;
+     padding: 20px 20px 20px 20px;
+     /* Quita el padding superior */
+ }
 
-.arrow-left {
-    left: -20px;
-}
 
-.arrow-right {
-    right: -20px;
-}
+ .container {
+     max-width: 1200px;
+     margin: 0 auto;
+ }
 
-/* Estilo para el contenedor de detalles del personaje */
-.character-details-container {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    background-color: #1c1c1c; /* Fondo oscuro para destacar la imagen y los detalles */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
-/* Estilo para el contenedor de la imagen */
-.character-image-container {
-    margin-right: 20px;
-}
+ /* Estilo de las filas de tarjetas */
+ .card-row-wrapper {
+     position: relative;
+     display: flex;
+     align-items: center;
+ }
 
-/* Estilo para la imagen */
-.character-image {
-    width: 200px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-}
+ .card-row {
+     display: flex;
+     overflow-x: hidden;
+     /* Ocultar la barra de desplazamiento */
+     scroll-behavior: smooth;
+     padding: 10px 0;
+     flex-wrap: nowrap;
+     gap: 5px;
+ }
 
-/* Estilo para la información del personaje */
-.character-info {
-    color: #fff;
-}
+ .card {
+     flex-shrink: 0;
+     width: 17rem;
+     height: 420px;
+     margin: 0 10px;
+     overflow: hidden;
+     background-color: black;
+     border-radius: 8px;
+     box-shadow: 0px 0px 10px #FFC500;
+     /* Sombra dorada difuminada en todos los lados */
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+ }
 
-.character-info h1 {
-    margin-bottom: 15px;
-}
 
-.character-info p {
-    margin: 5px 0;
-}
+
+ .card-img-top.characters {
+     object-fit: contain;
+     /* Asegura que la imagen completa se ajuste dentro del contenedor */
+ }
+
+
+ .card:hover {
+     transform: translateY(-5px);
+     /* Efecto de levantar al hacer hover */
+     box-shadow: 0px 0px 20px #FFC500;
+ }
+
+ .card-img-top {
+     width: 100%;
+     height: 250px;
+     /* Ajuste uniforme de la altura de las imágenes */
+     object-fit: cover;
+     /* Ajustar la imagen dentro del contenedor para cubrirlo sin distorsión */
+     object-position: center;
+     /* Centrar la imagen */
+     background-color: #000;
+     /* Fondo negro para espacios vacíos */
+ }
+
+ .card-body {
+     padding: 15px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     height: 150px;
+     /* Altura fija para el cuerpo de la tarjeta */
+ }
+
+ .card-title,
+ .card-text {
+     color: #fff;
+ }
+
+ .btn-primary {
+     background-color: #007bff;
+     border-color: #007bff;
+     transition: background-color 0.3s ease;
+ }
+
+ .btn-primary:hover {
+     background-color: #0056b3;
+     border-color: #004085;
+ }
+
+ .btn-warning {
+     background-color: #FFC500;
+     border-color: #ffc107;
+     color: #000;
+     transition: background-color 0.3s ease;
+ }
+
+ .btn-warning:hover {
+     background-color: #FFC500;
+     border-color: #d39e00;
+ }
+
+ /* Estilo de las flechas de navegación */
+ .arrow-left,
+ .arrow-right {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     background-color: rgba(0, 0, 0, 0.5);
+     color: white;
+     border: none;
+     font-size: 2rem;
+     cursor: pointer;
+     z-index: 1;
+     padding: 10px;
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transition: background-color 0.3s ease;
+ }
+
+ .arrow-left:hover,
+ .arrow-right:hover {
+     background-color: rgba(0, 0, 0, 0.8);
+ }
+
+ .arrow-left {
+     left: -20px;
+ }
+
+ .arrow-right {
+     right: -20px;
+ }
+
+ /* Estilo para el contenedor de detalles del personaje */
+ .character-details-container {
+     display: flex;
+     align-items: center;
+     padding: 20px;
+     background-color: #1c1c1c;
+     /* Fondo oscuro para destacar la imagen y los detalles */
+     border-radius: 8px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ }
+
+ /* Estilo para la imagen */
+ .character-image {
+     width: 200px;
+     height: 300px;
+     object-fit: cover;
+     border-radius: 10px;
+ }
+
+ /* Estilo para la información del personaje */
+ .character-info {
+     color: #fff;
+ }
+
+ .character-info h1 {
+     margin-bottom: 15px;
+ }
+
+ .character-info p {
+     margin: 5px 0;
+ }
+
+ .footer {
+     background-color: black;
+     padding: 20px;
+     text-align: center;
+     color: #fff;
+     box-shadow: 0px -3px 10px #FFC500;
+     /* Sombra amarilla dorada difuminada encima del footer */
+ }
