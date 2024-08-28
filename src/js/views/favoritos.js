@@ -7,7 +7,7 @@ export const Favoritos = () => {
 
     return (
         <div className='container mt-4'> 
-            <h1>Favoritos</h1>
+            <h1 className="jedi-font">Favoritos</h1>
             {store.favorites.length > 0 ? (  
                 <ul className='list-group favoritos'>
                     {store.favorites.map((favorite, index) => (
@@ -24,7 +24,7 @@ export const Favoritos = () => {
                     ))}
                 </ul>
             ) : (
-                <p>No hay favoritos guardados.</p>
+                <p className='mensaje_favoritos'>No hay favoritos guardados.</p>
             )}
         </div>
     );

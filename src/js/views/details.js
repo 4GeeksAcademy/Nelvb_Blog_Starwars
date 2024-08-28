@@ -28,24 +28,24 @@ export const Details = ({ details, type }) => {
             case 'vehicles':
                 return (
                     <>
-                        <p>Model: {details.model}</p>
-                        <p>Manufacturer: {details.manufacturer}</p>
-                        <p>Cost in Credits: {details.cost_in_credits}</p>
-                        <p>Length: {details.length} m</p>
-                        <p>Crew: {details.crew}</p>
-                        <p>Passengers: {details.passengers}</p>
-                        <p>Cargo Capacity: {details.cargo_capacity} kg</p>
+                        <p>Modelo: {details.model}</p>
+                        <p>Fabricante: {details.manufacturer}</p>
+                        <p>Coste en créditos: {details.cost_in_credits}</p>
+                        <p>Longitud: {details.length} m</p>
+                        <p>Tripulación: {details.crew}</p>
+                        <p>Pasajeros: {details.passengers}</p>
+                        <p>Capacidad de carga: {details.cargo_capacity} kg</p>
                     </>
                 );
             case 'planets':
                 return (
                     <>
-                        <p>Climate: {details.climate}</p>
-                        <p>Diameter: {details.diameter} km</p>
-                        <p>Gravity: {details.gravity}</p>
-                        <p>Population: {details.population}</p>
-                        <p>Terrain: {details.terrain}</p>
-                        <p>Surface Water: {details.surface_water}%</p>
+                        <p>Clima: {details.climate}</p>
+                        <p>Diametro: {details.diameter} km</p>
+                        <p>Gravedad: {details.gravity}</p>
+                        <p>Población: {details.population}</p>
+                        <p>Terreno: {details.terrain}</p>
+                        <p>Superficie de agua: {details.surface_water}%</p>
                     </>
                 );
             default:

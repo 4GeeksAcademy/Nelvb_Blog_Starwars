@@ -10,7 +10,7 @@ const { store }= useContext(Context);
 			<div className='container-fluid justify-content-betwen'>
 				<Link to="/">
 					<img
-					src="https://brandemia.org/contenido/subidas/2021/05/portada-starwars-imagenes-brandemia-blog-1000x670.jpg" 
+					src="https://purodiseno.lat/wp-content/uploads/2022/05/STAR-WARS.jpg" 
 					alt="Star Wars Logo" 
 					className="navbar-logo"
 					/>
