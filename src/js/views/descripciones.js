@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { Context } from '../store/appContext';
-import { CharacterDetails } from './characterDetails';
-import { VehicleDetails } from './vehicleDetails';
-import { PlanetDetails } from './planetDetails';
+import { Details } from './details';
 
 export const Descripciones = () => {
     const { id, type } = useParams();
@@ -11,29 +9,32 @@ export const Descripciones = () => {
     const [itemDetails, setItemDetails] = useState(null);
 
     useEffect(() => {
-        actions.loadDetails(type, id).then(details => {
-            setItemDetails(details);
-        });
-    }, [id, type, actions]);
+        const loadDetails = async () => {
+            let details;
+            switch (type) {
+                case 'people':
+                    details = await actions.loadCharacterDetails(id);
+                    break;
+                case 'vehicles':
+                    details = await actions.loadVehicleDetails(id);
+                    break;
+                case 'planets':
+                    details = await actions.loadPlanetDetails(id);
+                    break;
+                default:
+                    console.error('Tipo desconocido:', type);
+            }
+            if (details) {
+                setItemDetails({ ...details, uid: id }); // Asegúrate de pasar el uid correctamente
+            }
+        };
 
-    const renderDetails = () => {
-        console.log("Item Details:", itemDetails);
-        
-        switch (type) {
-            case 'people': 
-                return <CharacterDetails details={itemDetails} />;
-            case 'vehicles':
-                return <VehicleDetails details={itemDetails} />;
-            case 'planets':
-                return <PlanetDetails details={itemDetails} />;
-            default:
-                return <p>No hay detalles disponibles.</p>;
-        }
-    };
+        loadDetails();
+    }, [id, type, actions]);
 
     return (
         <div className="container mt-4">
-            {itemDetails ? renderDetails() : <p>Cargando detalles...</p>}
+            {itemDetails ? <Details details={itemDetails} type={type} /> : <p>Cargando detalles...</p>}
         </div>
     );
 };

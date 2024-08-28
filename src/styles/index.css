@@ -41,9 +41,9 @@
  }
 
  @font-face {
-     font-family: 'Star Jedi';
-     src: url('/src/fons/Starjedi.ttf') format('truetype');
- }
+    font-family: 'Star Jedi';
+    src: url('./fons/Starjedi.ttf') format('truetype');
+}
 
  /* Aplica la fuente Star Jedi solo a los h2 */
  .home-container h2 {
@@ -58,13 +58,11 @@
          0px 0px 3px #FFC500;
      /* Sombra amarilla, la más difusa */
      text-align: center;
-     padding-top: 20px;
  }
 
 
  /* Fondo y configuración general */
- body,
- html {
+ body{
      margin: 0;
      padding: 0;
      box-sizing: border-box;
@@ -80,16 +78,9 @@
      background-size: cover;
      background-position: center;
      min-height: 100vh;
-     padding: 20px 20px 20px 20px;
-     /* Quita el padding superior */
+     padding: 20px 20px 40px 20px;
+     padding-top: 30px;
  }
-
-
- .container {
-     max-width: 1200px;
-     margin: 0 auto;
- }
-
 
  /* Estilo de las filas de tarjetas */
  .card-row-wrapper {
@@ -218,38 +209,46 @@
  .arrow-right {
      right: -20px;
  }
+/* Estilo para el contenedor de detalles */
+.details-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 80px;
+    margin-top: 80px;
+}
 
- /* Estilo para el contenedor de detalles del personaje */
- .character-details-container {
-     display: flex;
-     align-items: center;
-     padding: 20px;
-     background-color: #1c1c1c;
-     /* Fondo oscuro para destacar la imagen y los detalles */
-     border-radius: 8px;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
- }
+/* Estilo para la imagen */
+.details-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
 
- /* Estilo para la imagen */
- .character-image {
-     width: 200px;
-     height: 300px;
-     object-fit: cover;
-     border-radius: 10px;
- }
+/* Estilo para la información */
+.details-info {
+    color: #fff;
+    margin-left: 20px;
+}
 
- /* Estilo para la información del personaje */
- .character-info {
-     color: #fff;
- }
+.details-info h1 {
+    margin-bottom: 15px;
+}
 
- .character-info h1 {
-     margin-bottom: 15px;
- }
+.details-info p {
+    margin: 5px 0;
+}
 
- .character-info p {
-     margin: 5px 0;
- }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
 
  .footer {
      background-color: black;

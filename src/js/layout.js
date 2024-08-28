@@ -5,7 +5,6 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Descripciones } from "./views/descripciones";
 import { Favoritos } from "./views/favoritos";
-import { PaginaNoEncontrada } from "./views/paginaNoEncontrada";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -26,8 +25,6 @@ const Layout = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/descripciones/:type/:id" element={<Descripciones />} />
                         <Route path="/favoritos" element={<Favoritos />} />
-                        {/* No importa qué ruta inexistente se intente acceder, siempre mostrará la vista de "Página No Encontrada". */}
-                        <Route path="*" element={<PaginaNoEncontrada />} />
                     </Routes>
                     <Footer />
                 </ScrollToTop>

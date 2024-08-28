@@ -29,15 +29,15 @@ export const Home = () => {
                 <div className="card-row card-row-people">
                     {store.people.map((person) => (
                         <Card
-                        key={`${person.uid}-people`}
-                        title={person.name}
-                        imageUrl={`https://starwars-visualguide.com/assets/img/characters/${person.uid}.jpg`}
-                        description={`Ver más sobre ${person.name}`}
-                        linkUrl={`/descripciones/people/${person.uid}`}
-                        onAddToFavorites={() => addToFavorites(person, 'people')}
-                        isFavorite={isFavorite(person, 'people')}
-                        type="people"  // Añade este prop para identificar que es un personaje
-                    />
+                            key={`${person.uid}-people`}
+                            title={person.name}
+                            imageUrl={`https://starwars-visualguide.com/assets/img/characters/${person.uid}.jpg`}
+                            description={`Ver más sobre ${person.name}`}
+                            linkUrl={`/descripciones/people/${person.uid}`}
+                            onAddToFavorites={() => addToFavorites(person, 'people')}
+                            isFavorite={isFavorite(person, 'people')}
+                            type="people"  // Asegúrate de pasar el tipo aquí
+                        />
                     ))}
                 </div>
                 <button className="arrow-right" onClick={() => scrollRight('card-row-people')}>{'>'}</button>
@@ -56,6 +56,7 @@ export const Home = () => {
                             linkUrl={`/descripciones/vehicles/${vehicle.uid}`}
                             onAddToFavorites={() => addToFavorites(vehicle, 'vehicles')}
                             isFavorite={isFavorite(vehicle, 'vehicles')}
+                            type="vehicles"  // Asegúrate de pasar el tipo aquí
                         />
                     ))}
                 </div>
@@ -75,6 +76,7 @@ export const Home = () => {
                             linkUrl={`/descripciones/planets/${planet.uid}`}
                             onAddToFavorites={() => addToFavorites(planet, 'planets')}
                             isFavorite={isFavorite(planet, 'planets')}
+                            type="planets"  // Asegúrate de pasar el tipo aquí
                         />
                     ))}
                 </div>

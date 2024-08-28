@@ -5,7 +5,6 @@ const getState = ({ getStore, setStore }) => {
             vehicles: [],
             planets: [],
             favorites: [],
-            selectedItem: null
         },
         actions: {
             loadCharacters: async () => {
@@ -38,25 +37,54 @@ const getState = ({ getStore, setStore }) => {
                 }
             },
 
-            loadDetails: async (type, id) => {
+            loadCharacterDetails: async (id) => {
                 try {
-                    const url = `https://www.swapi.tech/api/${type}/${id}`;
-                    console.log('Fetching details from URL:', url); 
+                    const url = `https://www.swapi.tech/api/people/${id}`;
+                    console.log('Fetching character details from URL:', url); 
                     const response = await fetch(url);
-            
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
-            
-                    const contentType = response.headers.get("content-type");
-                    if (contentType && contentType.indexOf("application/json") !== -1) {
-                        const data = await response.json();
-                        return data.result.properties;
-                    } else {
-                        throw new Error("Received non-JSON response");
-                    }
+                    const data = await response.json();
+                    console.log('Detalles recibidos:', data); // Verificar estructura
+                    const properties = data.result.properties;
+                    return { ...properties, uid: id }; // Asegúrate de devolver 'uid' junto con los detalles
                 } catch (error) {
-                    console.error('Error loading details:', error);
+                    console.error('Error loading character details:', error);
+                    return null;
+                }
+            },
+
+            loadVehicleDetails: async (id) => {
+                try {
+                    const url = `https://www.swapi.tech/api/vehicles/${id}`;
+                    console.log('Fetching vehicle details from URL:', url); 
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    const properties = data.result.properties;
+                    return { ...properties, uid: id }; // Asegúrate de devolver 'uid' junto con los detalles
+                } catch (error) {
+                    console.error('Error loading vehicle details:', error);
+                    return null;
+                }
+            },
+
+            loadPlanetDetails: async (id) => {
+                try {
+                    const url = `https://www.swapi.tech/api/planets/${id}`;
+                    console.log('Fetching planet details from URL:', url); 
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    const properties = data.result.properties;
+                    return { ...properties, uid: id }; // Asegúrate de devolver 'uid' junto con los detalles
+                } catch (error) {
+                    console.error('Error loading planet details:', error);
                     return null;
                 }
             },

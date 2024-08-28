@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
+import { Link } from 'react-router-dom';
 
 export const Favoritos = () => {
     const { store, actions } = useContext(Context);
@@ -11,7 +12,9 @@ export const Favoritos = () => {
                 <ul className='list-group favoritos'>
                     {store.favorites.map((favorite, index) => (
                         <li key={index} className='list-group-item d-flex justify-content-between align-items-center'>
-                            {favorite.name}
+                            <Link to={`/descripciones/${favorite.type}/${favorite.uid}`}>
+                                {favorite.name}
+                            </Link>
                             <button
                                 className='btn btn-danger btn-sm'
                                 onClick={() => actions.removeFromFavorites(index)}>
