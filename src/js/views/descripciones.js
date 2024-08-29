@@ -41,7 +41,7 @@ export const Descripciones = () => {
     }, [id, type, actions]);
 
     return (
-        <div className="container mt-4">
+        <div className="container_descriptions mt-4">
             {itemDetails ? <Details details={itemDetails} type={type} /> : <p>Cargando detalles...</p>}
         </div>
     );

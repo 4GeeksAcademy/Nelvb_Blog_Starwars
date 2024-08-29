@@ -9,7 +9,7 @@ export const Home = () => {
         actions.loadCharacters(); // Esto ahora cargará todo lo necesario
         actions.loadVehicles();
         actions.loadPlanets();
-    }, [actions]);
+    }, []);
 
     const isFavorite = (item, type) => {
         return store.favorites.some(favorite => favorite.uid === item.uid && favorite.type === type);

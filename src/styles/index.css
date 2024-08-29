@@ -1,174 +1,181 @@
- /* Estilo para la navbar */
- .navbar {
-     background-color: black;
-     padding-top: 0px;
-     padding-bottom: 0px;
-     box-shadow: 0px 3px 10px #FFC500;
-     /* Sombra amarilla dorada difuminada */
- }
+/* Estilo para la navbar */
+.navbar {
+    background-color: black;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    box-shadow: 0px 3px 10px #FFC500;
+    /* Sombra amarilla dorada difuminada */
+}
 
+.navbar .navbar-brand,
+.navbar .navbar-text,
+.navbar .btn {
+    color: white;
+}
 
- .navbar .navbar-brand,
- .navbar .navbar-text,
- .navbar .btn {
-     color: white;
- }
+.navbar .navbar-brand:hover,
+.navbar .navbar-text:hover,
+.navbar .btn:hover {
+    color: lightgrey;
+}
 
- .navbar .navbar-brand:hover,
- .navbar .navbar-text:hover,
- .navbar .btn:hover {
-     color: lightgrey;
- }
+.navbar-logo {
+    height: 130px;
+    /* Ajusta la altura del logo */
+    object-fit: contain;
+    /* Mantener la relación de aspecto */
+}
 
- .navbar-logo {
-     height: 130px;
-     /* Ajusta la altura del logo */
-     object-fit: contain;
-     /* Mantener la relación de aspecto */
- }
+/* Estilo específico para el texto de Star Wars */
+.star-wars-text {
+    color: #1E90FF !important;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    text-shadow:
+        0px 0px 1px #1E90FF,
+        0px 0px 3px #1E90FF;
+}
 
- /* Estilo específico para el texto de Star Wars */
- .star-wars-text {
-     color: #1E90FF !important;
-     font-family: Arial, sans-serif;
-     font-size: 30px;
-     text-shadow:
-         0px 0px 1px #1E90FF,
-         0px 0px 3px #1E90FF;
- }
+.navbar .btn-primary {
+    background-color: #1E90FF !important;
+    border-color: #1E90FF !important;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
 
- @font-face {
+.navbar .btn-primary:hover {
+    transform: translateY(-5px);
+    background-color: #1E90FF !important;
+    border-color: #1E90FF !important;
+}
+
+@font-face {
     font-family: 'Star Jedi';
     src: url('./fons/Starjedi.ttf') format('truetype');
 }
 
- /* Aplica la fuente Star Jedi solo a los h2 */
- .home-container h2 {
-     font-family: 'Star Jedi', sans-serif;
-     font-size: 45px;
-     letter-spacing: 1px;
-     color: #FFC500;
-     text-shadow:
-         0px 0px 1px #FFC500,
-         /* Sombra amarilla difusa */
-         0px 0px 3px #FFC500;
-     /* Sombra amarilla, difusa */
-     text-align: center;
- }
+/* Aplica la fuente Star Jedi solo a los h2 */
+.home-container h2 {
+    font-family: 'Star Jedi', sans-serif;
+    font-size: 45px;
+    letter-spacing: 1px;
+    color: #FFC500;
+    text-shadow:
+        0px 0px 1px #FFC500,
+        /* Sombra amarilla difusa */
+        0px 0px 3px #FFC500;
+    /* Sombra amarilla, difusa */
+    text-align: center;
+}
 
+/* Fondo y configuración general */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+}
 
- /* Fondo y configuración general */
- body{
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-     font-family: Arial, sans-serif;
-     background-color: #000;
- }
+.home-container {
+    background-image: url('https://img.freepik.com/vector-gratis/trae-papel-tapiz-espacio-nocturno-campo-estelar-brillante_1017-53512.jpg?size=626&ext=jpg&ga=GA1.1.1988309428.1722936788&semt=ais_hybrid');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 20px 20px 40px 20px;
+    padding-top: 30px;
+}
 
+/* Estilo de las filas de tarjetas */
+.card-row-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
 
- .home-container {
-     background-image: url('https://img.freepik.com/vector-gratis/trae-papel-tapiz-espacio-nocturno-campo-estelar-brillante_1017-53512.jpg?size=626&ext=jpg&ga=GA1.1.1988309428.1722936788&semt=ais_hybrid');
-     background-repeat: no-repeat;
-     background-size: cover;
-     background-position: center;
-     min-height: 100vh;
-     padding: 20px 20px 40px 20px;
-     padding-top: 30px;
- }
+.card-row {
+    display: flex;
+    overflow-x: hidden;
+    /* Ocultar la barra de desplazamiento */
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
 
- /* Estilo de las filas de tarjetas */
- .card-row-wrapper {
-     position: relative;
-     display: flex;
-     align-items: center;
- }
+.card {
+    flex-shrink: 0;
+    width: 17rem;
+    height: 420px;
+    margin: 0 10px;
+    overflow: hidden;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px #FFC500;
+    /* Sombra dorada difuminada en todos los lados */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
- .card-row {
-     display: flex;
-     overflow-x: hidden;
-     /* Ocultar la barra de desplazamiento */
-     scroll-behavior: smooth;
-     padding: 10px 0;
-     flex-wrap: nowrap;
-     gap: 5px;
- }
+.card-img-top.characters {
+    object-fit: contain;
+}
 
- .card {
-     flex-shrink: 0;
-     width: 17rem;
-     height: 420px;
-     margin: 0 10px;
-     overflow: hidden;
-     background-color: black;
-     border-radius: 8px;
-     box-shadow: 0px 0px 10px #FFC500;
-     /* Sombra dorada difuminada en todos los lados */
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
- }
-
-
-
- .card-img-top.characters {
-     object-fit: contain;
- }
-
-
- .card:hover {
-     transform: translateY(-5px);
-     /* Efecto de levantar al hacer hover */
-     box-shadow: 0px 0px 20px #FFC500;
- }
-
- .card-img-top {
-     width: 100%;
-     height: 250px;
-     object-fit: cover;
-     object-position: center;
-     background-color: #000;
- }
-
- .card-body {
-     padding: 15px;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
-     height: 150px;
-     /* Altura fija para el cuerpo de la tarjeta */
- }
-
- .card-title,
- .card-text {
-     color: #fff;
- }
-
- .btn-primary {
-     background-color: #1E90FF !important;
-     border-color: #1E90FF !important;
- }
-
- .btn-primary:hover {
+.card:hover {
     transform: translateY(-5px);
-     background-color: #1E90FF !important;
-     border-color: #1E90FF !important;
- }
+    /* Efecto de levantar al hacer hover */
+    box-shadow: 0px 0px 20px #FFC500;
+}
 
- .btn-warning {
-     background-color: #FFC500;
-     border-color: #ffc107;
-     color: #000;
-     transition: background-color 0.3s ease;
- }
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    background-color: #000;
+}
 
- .btn-warning:hover {
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px;
+    /* Altura fija para el cuerpo de la tarjeta */
+}
+
+.card-title,
+.card-text {
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #1E90FF !important;
+    border-color: #1E90FF !important;
+}
+
+.btn-primary:hover {
     transform: translateY(-5px);
-     background-color: #FFC500;
-     border-color: #d39e00;
- }
+    background-color: #1E90FF !important;
+    border-color: #1E90FF !important;
+}
 
- .image-overlay {
+.btn-warning {
+    background-color: #FFC500;
+    border-color: #ffc107;
+    color: #000;
+    transition: background-color 0.3s ease;
+}
+
+.btn-warning:hover {
+    transform: translateY(-5px);
+    background-color: #FFC500;
+    border-color: #d39e00;
+}
+
+.image-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -180,40 +187,42 @@
     align-items: center;
     font-size: 1.5rem;
     text-align: center;
-    opacity: 0.3; /* La transparencia del texto */
+    opacity: 0.3;
+    /* La transparencia del texto */
 }
 
+/* Estilo de las flechas de navegación */
+.arrow-left,
+.arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
 
- /* Estilo de las flechas de navegación */
- .arrow-left, .arrow-right {
-     position: absolute;
-     top: 50%;
-     transform: translateY(-50%);
-     background-color: rgba(0, 0, 0, 0.5);
-     color: white;
-     border: none;
-     font-size: 2rem;
-     cursor: pointer;
-     z-index: 1;
-     padding: 10px;
-     border-radius: 50%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     transition: background-color 0.3s ease;
- }
+.arrow-left:hover,
+.arrow-right:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
- .arrow-left:hover, .arrow-right:hover {
-     background-color: rgba(0, 0, 0, 0.8);
- }
+.arrow-left {
+    left: -20px;
+}
 
- .arrow-left {
-     left: -20px;
- }
-
- .arrow-right {
-     right: -20px;
- }
+.arrow-right {
+    right: -20px;
+}
 
 /* Estilo para el contenedor de detalles */
 .details-container {
@@ -249,6 +258,34 @@
     margin: 5px 0;
 }
 
+/* Ajustes responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .details-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .details-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .details-info {
+        margin-left: 0;
+    }
+
+    .details-info h1 {
+        font-size: 1.5rem;
+    }
+}
+
+.container_descriptions {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 
 .container {
     max-width: 1200px;
@@ -259,20 +296,28 @@
 .jedi-font {
     font-family: 'Star Jedi', sans-serif;
     font-size: 45px;
-    color: #FFC500; 
+    color: #FFC500;
 }
 
 .mensaje_favoritos {
     color: red;
 }
 
+.footer {
+    font-family: 'Star Jedi', sans-serif;
+    font-size: 12px;
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+    color: #FFC500;
+    box-shadow: 0px -3px 10px #FFC500;
+    /* Sombra amarilla dorada difuminada encima del footer */
+}
 
-
- .footer {
-     background-color: black;
-     padding: 20px;
-     text-align: center;
-     color: #fff;
-     box-shadow: 0px -3px 10px #FFC500;
-     /* Sombra amarilla dorada difuminada encima del footer */
- }
+/* Tamaño ajustado y brillo reducido */
+.fa-jedi {
+    color: #39FF14; /* Verde brillante estilo neón */
+    font-size: 15px; /* Ajusta el tamaño según sea necesario */
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.7), /* Sombra más suave */
+                 0 0 20px rgba(57, 255, 20, 0.5); /* Sombra adicional más tenue */
+}
