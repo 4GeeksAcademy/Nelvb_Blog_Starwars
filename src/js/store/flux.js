@@ -1,17 +1,30 @@
-const getState = ({ getStore, setStore }) => {
+const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
             people: [],
             vehicles: [],
             planets: [],
             favorites: [],
+            peopleDetail: [],
+            vehicleDetail: [],
+            planetDetail: [],
         },
         actions: {
             loadCharacters: async () => {
                 try {
                     const response = await fetch('https://www.swapi.tech/api/people');
                     const data = await response.json();
-                    setStore({ people: data.results });
+
+                    // Para cada personaje, obtenemos su descripción
+                    const updatedPeople = await Promise.all(
+                        data.results.map(async (person) => {
+                            const res = await fetch(`https://www.swapi.tech/api/people/${person.uid}`);
+                            const personData = await res.json();
+                            return { ...person, description: personData.result.description };
+                        })
+                    );
+
+                    setStore({ people: updatedPeople });
                 } catch (error) {
                     console.error('Error loading people:', error);
                 }
@@ -19,9 +32,19 @@ const getState = ({ getStore, setStore }) => {
 
             loadVehicles: async () => {
                 try {
-                    const response = await fetch("https://www.swapi.tech/api/vehicles");
+                    const response = await fetch('https://www.swapi.tech/api/vehicles');
                     const data = await response.json();
-                    setStore({ vehicles: data.results });
+
+                    // Para cada vehículo, obtenemos su descripción
+                    const updatedVehicles = await Promise.all(
+                        data.results.map(async (vehicle) => {
+                            const res = await fetch(`https://www.swapi.tech/api/vehicles/${vehicle.uid}`);
+                            const vehicleData = await res.json();
+                            return { ...vehicle, description: vehicleData.result.description };
+                        })
+                    );
+
+                    setStore({ vehicles: updatedVehicles });
                 } catch (error) {
                     console.error('Error loading vehicles:', error);
                 }
@@ -31,7 +54,17 @@ const getState = ({ getStore, setStore }) => {
                 try {
                     const response = await fetch('https://www.swapi.tech/api/planets');
                     const data = await response.json();
-                    setStore({ planets: data.results });
+
+                    // Para cada planeta, obtenemos su descripción
+                    const updatedPlanets = await Promise.all(
+                        data.results.map(async (planet) => {
+                            const res = await fetch(`https://www.swapi.tech/api/planets/${planet.uid}`);
+                            const planetData = await res.json();
+                            return { ...planet, description: planetData.result.description };
+                        })
+                    );
+
+                    setStore({ planets: updatedPlanets });
                 } catch (error) {
                     console.error('Error loading planets:', error);
                 }
@@ -40,15 +73,13 @@ const getState = ({ getStore, setStore }) => {
             loadCharacterDetails: async (id) => {
                 try {
                     const url = `https://www.swapi.tech/api/people/${id}`;
-                    console.log('Fetching character details from URL:', url); 
                     const response = await fetch(url);
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
                     const data = await response.json();
-                    console.log('Detalles recibidos:', data); // Verificar estructura
-                    const properties = data.result.properties;
-                    return { ...properties, uid: id }; // Asegúrate de devolver 'uid' junto con los detalles
+                    const { properties, description } = data.result;
+                    return { ...properties, description, uid: id };
                 } catch (error) {
                     console.error('Error loading character details:', error);
                     return null;
@@ -58,14 +89,13 @@ const getState = ({ getStore, setStore }) => {
             loadVehicleDetails: async (id) => {
                 try {
                     const url = `https://www.swapi.tech/api/vehicles/${id}`;
-                    console.log('Fetching vehicle details from URL:', url); 
                     const response = await fetch(url);
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
                     const data = await response.json();
-                    const properties = data.result.properties;
-                    return { ...properties, uid: id }; // Asegúrate de devolver 'uid' junto con los detalles
+                    const { properties, description } = data.result;
+                    return { ...properties, description, uid: id };
                 } catch (error) {
                     console.error('Error loading vehicle details:', error);
                     return null;
@@ -75,14 +105,13 @@ const getState = ({ getStore, setStore }) => {
             loadPlanetDetails: async (id) => {
                 try {
                     const url = `https://www.swapi.tech/api/planets/${id}`;
-                    console.log('Fetching planet details from URL:', url); 
                     const response = await fetch(url);
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
                     const data = await response.json();
-                    const properties = data.result.properties;
-                    return { ...properties, uid: id }; // Asegúrate de devolver 'uid' junto con los detalles
+                    const { properties, description } = data.result;
+                    return { ...properties, description, uid: id };
                 } catch (error) {
                     console.error('Error loading planet details:', error);
                     return null;
@@ -94,11 +123,9 @@ const getState = ({ getStore, setStore }) => {
                 const isFavorite = store.favorites.some(favorite => favorite.uid === item.uid && favorite.type === item.type);
 
                 if (isFavorite) {
-                    // Elimina el favorito
                     const newFavorites = store.favorites.filter(favorite => favorite.uid !== item.uid || favorite.type !== item.type);
                     setStore({ favorites: newFavorites });
                 } else {
-                    // Agrega el favorito
                     setStore({ favorites: [...store.favorites, item] });
                 }
             },

@@ -9,8 +9,12 @@ export const Descripciones = () => {
     const [itemDetails, setItemDetails] = useState(null);
 
     useEffect(() => {
+        console.log("useEffect en Descripciones funciona");
+        
         const loadDetails = async () => {
+            console.log("Dentro de la función loadDetails");
             let details;
+
             switch (type) {
                 case 'people':
                     details = await actions.loadCharacterDetails(id);
@@ -24,8 +28,12 @@ export const Descripciones = () => {
                 default:
                     console.error('Tipo desconocido:', type);
             }
+
+            // Imprime detalles obtenidos para asegurar que se devulve respuesta correcta
+            console.log("Detalles recibidos:", details);
+
             if (details) {
-                setItemDetails({ ...details, uid: id }); // Asegúrate de pasar el uid correctamente
+                setItemDetails({ ...details, uid: id });
             }
         };
 
